@@ -1,14 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import './square.css';
 
-class Square extends React.Component {
-    render() {
-        return (
-            <button className="square" onClick={this.props.onClick}>
-                {this.props.value}
-            </button>
-        );
-    }
+export default function Square(props) {
+    return (
+        <button className="square" onClick={props.onClick /* When the square is clicked, pass its key up to the parent */ }>
+            {props.value}
+        </button>
+    );
 }
 
-export default Square;

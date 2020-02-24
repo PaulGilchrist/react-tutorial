@@ -3,14 +3,14 @@ import './game.css';
 
 import Board from './board';
 
-class Game extends React.Component {
+export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             history: [{
                 squares: Array(9).fill(null),
             }],
-            stepNumber: 0,
+            moveNumber: 0,
             xIsNext: true
         };
     }
@@ -35,8 +35,16 @@ class Game extends React.Component {
         return null;
     }
 
+    componentDidMount(){
+        // code
+    }
+
+    componentDidUpdate(){
+        // other code
+    }
+
     handleClick(i) {
-        const history = this.state.history.slice(0, this.state.stepNumber + 1);
+        const history = this.state.history.slice(0, this.state.moveNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
         if (this.calculateWinner(squares) || squares[i]) {
@@ -47,29 +55,29 @@ class Game extends React.Component {
             history: history.concat([{
                 squares: squares,
             }]),
-            stepNumber: history.length,
+            moveNumber: history.length,
             xIsNext: !this.state.xIsNext
         });
     }
 
-    jumpTo(step) {
+    jumpTo(move) {
         this.setState({
-            stepNumber: step,
-            xIsNext: (step % 2) === 0
+            moveNumber: move,
+            xIsNext: (move % 2) === 0
         });
     }
 
     render() {
         const history = this.state.history;
-        const current = history[this.state.stepNumber];
+        const current = history[this.state.moveNumber];
         const winner = this.calculateWinner(current.squares);
-        const moves = history.map((step, move) => {
-            const desc = move ?
-                'Go to move #' + move :
+        const moves = history.map((h, index) => {
+            const desc = index ?
+                'Go to move #' + index :
                 'Go to game start';
             return (
-                <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                <li key={index}>
+                    <button onClick={() => this.jumpTo(index)}>{desc}</button>
                 </li>
             );
         });
@@ -95,5 +103,3 @@ class Game extends React.Component {
         );
     }
 }
-
-export default Game;

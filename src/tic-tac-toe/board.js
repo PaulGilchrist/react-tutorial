@@ -3,12 +3,12 @@ import './board.css';
 
 import Square from './square';
 
-class Board extends React.Component {
+export default class Board extends React.Component {
     renderSquare(i) {
         return (
             <Square
                 value={this.props.squares[i]}
-                onClick={() => this.props.onClick(i)}
+                onClick={() => this.props.onClick(i) /* When the square is clicked, pass its key up to the parent */ }
             />
         );
     }
@@ -17,7 +17,7 @@ class Board extends React.Component {
         return (
             <div>
                 <div className="board-row">
-                    {this.renderSquare(0)}
+                    {this.renderSquare(0) /* Give each square a key */ }
                     {this.renderSquare(1)}
                     {this.renderSquare(2)}
                 </div>
@@ -35,5 +35,3 @@ class Board extends React.Component {
         );
     }
 }
-
-export default Board;
