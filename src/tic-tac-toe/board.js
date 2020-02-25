@@ -3,13 +3,16 @@ import './board.css';
 
 import Square from './square';
 
+// Requires parent to pass in squares and click handler function reference
 const Board  = props => {
+    // Functions
     const renderSquare = i => (
         <Square
-            value={props.squares[i]}
+            value={props.squareValues[i]}
             onClick={() => props.onClick(i)}
         />
     );
+    // UI
     return (
         <div>
             <div className="board-row">

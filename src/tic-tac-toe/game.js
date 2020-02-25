@@ -4,12 +4,14 @@ import './game.css';
 import Board from './board';
 
 const Game = () => {
+    // Hooks
     const [history, setHistory] = useState([{
-        squares: Array(9).fill(null),
+        squareValues: Array(9).fill(null),
     }]);
     const [moveNumber, setMoveNumber] = useState(0);
     const [xIsNext, setXIsNext] = useState(true);
-    const calculateWinner = squares => {
+    // Functions
+    const calculateWinner = squareValues => {
         const lines = [
             [0, 1, 2],
             [3, 4, 5],
@@ -18,12 +20,12 @@ const Game = () => {
             [1, 4, 7],
             [2, 5, 8],
             [0, 4, 8],
-            [2, 4, 6],
+            [2, 4, 6]
         ];
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
-            if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-                return squares[a];
+            if (squareValues[a] && squareValues[a] === squareValues[b] && squareValues[a] === squareValues[c]) {
+                return squareValues[a];
             }
         }
         return null;
@@ -31,13 +33,13 @@ const Game = () => {
     const handleClick = i => {
         const newHistory = history.slice(0, moveNumber + 1);
         const current = newHistory[newHistory.length - 1];
-        const squares = current.squares.slice();
-        if (calculateWinner(squares) || squares[i]) {
+        const squareValues = current.squareValues.slice();
+        if (calculateWinner(squareValues) || squareValues[i]) {
             return;
         }
-        squares[i] = xIsNext ? 'X' : 'O';
+        squareValues[i] = xIsNext ? 'X' : 'O';
         setHistory(newHistory.concat([{ 
-            squares: squares,
+            squareValues: squareValues,
         }]));
         setMoveNumber(newHistory.length);
         setXIsNext(!xIsNext);
@@ -46,8 +48,9 @@ const Game = () => {
         setMoveNumber(move);
         setXIsNext((move % 2) === 0);
     }
+    // Computations
     const current = history[moveNumber];
-    const winner = calculateWinner(current.squares);
+    const winner = calculateWinner(current.squareValues);
     const moves = history.map((h, index) => {
         const desc = index ?
             'Go to move #' + index :
@@ -64,11 +67,12 @@ const Game = () => {
     } else {
         status = 'Next player: ' + (xIsNext ? 'X' : 'O');
     }
+    // UI
     return (
         <div className="game">
             <div>
                 <Board
-                    squares={current.squares}
+                    squareValues={current.squareValues}
                     onClick={(i) => handleClick(i)}
                 />
             </div>
