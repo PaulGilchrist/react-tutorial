@@ -4,7 +4,7 @@ import './game.css';
 import Board from './board';
 
 const Game = () => {
-    // Hooks
+    // State
     const [history, setHistory] = useState([{
         squareValues: Array(9).fill(null),
     }]);
@@ -38,6 +38,7 @@ const Game = () => {
             return;
         }
         squareValues[i] = xIsNext ? 'X' : 'O';
+        // Update state
         setHistory(newHistory.concat([{ 
             squareValues: squareValues,
         }]));
@@ -45,6 +46,7 @@ const Game = () => {
         setXIsNext(!xIsNext);
     }
     const jumpTo = move => {
+        // Update state
         setMoveNumber(move);
         setXIsNext((move % 2) === 0);
     }
