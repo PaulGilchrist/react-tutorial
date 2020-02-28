@@ -9,6 +9,7 @@
     ],
     "globals": {
         "Atomics": "readonly",
+        "process": "readonly", // Webpack replaces any process.env with the corresponding variable from the .env file
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {

@@ -5,7 +5,7 @@ import Board from './board';
 
 const Game = () => {
     // Access environment variables
-    console.log(React.process.env.REACT_APP_ENVIRONMENT);
+    console.log(process.env.REACT_APP_ENVIRONMENT);
     // State
     const [history, setHistory] = useState([{
         squareValues: Array(9).fill(null),
