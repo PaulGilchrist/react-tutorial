@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import './game.css';
+import css from './game.module.css';
 
 import Board from './board';
 
 const Game = () => {
+    // Access environment variables
+    console.log(React.process.env.REACT_APP_ENVIRONMENT);
     // State
     const [history, setHistory] = useState([{
         squareValues: Array(9).fill(null),
@@ -71,16 +73,16 @@ const Game = () => {
     }
     // UI
     return (
-        <div className="game">
+        <div className={css.game}>
             <div>
                 <Board
                     squareValues={current.squareValues}
                     onClick={(i) => handleClick(i)}
                 />
-            </div>
-            <div className="game-info">
                 <div>{status}</div>
-                <ol>{moves}</ol>
+            </div>
+            <div className={css.gameInfo}>
+                <ol className={css.ol}>{moves}</ol>
             </div>
         </div>
     );
