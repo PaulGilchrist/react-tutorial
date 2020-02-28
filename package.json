@@ -1,7 +1,5 @@
 {
-  "name": "react-tutorial",
-  "version": "0.1.0",
-  "private": true,
+  "authors": ["Paul Gilchrist"],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -14,27 +12,37 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.4.0",
-    "prettier": "^1.19.1"
-  },
+  "description": "Takes original React tutorial and modernizes and slightly extends it",
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "homepage": "http://localhost:3000",
+  "license": "MIT",
+  "private": true,
+  "name": "react-tutorial",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulGilchrist/react-tutorial.git"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "version": "0.1.0",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.4.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.4.0",
+    "prettier": "^1.19.1"
   }
 }
