@@ -61,7 +61,7 @@ const Game = () => {
             'Go to game start';
         return (
             <li key={index}>
-                <button onClick={() => jumpTo(index)}>{desc}</button>
+                <button className="btn btn-sm btn-info" style={{width: '100%'}} onClick={() => jumpTo(index)}>{desc}</button>
             </li>
         );
     });
@@ -82,7 +82,7 @@ const Game = () => {
                 <div>{status}</div>
             </div>
             <div className={css.gameInfo}>
-                <ol className={css.ol}>{moves}</ol>
+                <ul className={css.ul}>{moves}</ul>
             </div>
         </div>
     );
