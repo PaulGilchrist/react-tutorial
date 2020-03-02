@@ -1,4 +1,4 @@
-.boardRow:after {
+.ttt-board .boardRow:after {
   clear: both;
   content: "";
   display: table;

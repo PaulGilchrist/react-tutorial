@@ -1,4 +1,4 @@
-.square {
+.ttt-square {
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -12,12 +12,6 @@
   text-align: center;
   width: 34px;
 }
-
-.square:focus {
+.ttt-square:focus {
   outline: none;
 }
-
-.kbd-navigation .square:focus {
-  background: #ddd;
-}
-

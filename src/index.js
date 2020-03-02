@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-import Game from './tic-tac-toe/game';
+import App from './components/App';
 
 ReactDOM.render(
-    <Game />,
+    <App />,
     document.getElementById('root')
 );

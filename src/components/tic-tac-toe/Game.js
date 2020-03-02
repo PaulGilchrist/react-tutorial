@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import css from './game.module.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './game.css';
 
-import Board from './board';
+import Board from './Board';
 
 const Game = () => {
     // Access environment variables
@@ -73,7 +74,7 @@ const Game = () => {
     }
     // UI
     return (
-        <div className={css.game}>
+        <div className='ttt-game'>
             <div>
                 <Board
                     squareValues={current.squareValues}
@@ -81,8 +82,8 @@ const Game = () => {
                 />
                 <div>{status}</div>
             </div>
-            <div className={css.gameInfo}>
-                <ul className={css.ul}>{moves}</ul>
+            <div className='ttt-game-info'>
+                <ul>{moves}</ul>
             </div>
         </div>
     );
